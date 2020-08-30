@@ -17,14 +17,14 @@
 ### Association
 
 - has_many :items
-- has_many :deal
+- has_many :manages
 
 
 ## items テーブル
 
 | Column              | Type       | Options     |
 | ------------------- | ---------- | ----------- |
-| image               |            | null: false |
+| image               | string     | null: false |
 | name                | string     | null: false |
 | description         | text       | null: false |
 | category            | integer    | null: false |
@@ -32,30 +32,15 @@
 | shipping_charges    | integer    | null: false |
 | ship_from_address   | integer    | null: false |
 | date_takes          | integer    | null: false |
-| price               | Int        | null: false |
+| price               | integer    | null: false |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :purchase
-- has_one :deal
+- has_one : manage
 - belongs_to :user
 
-## purchases テーブル
-
-| Column                 | Type       | Options     |
-| ---------------------- | -----------| ----------- |
-| address_city           | String     | null: flase |
-| block_number           | String     | null: flase |
-| phone_number           | String     | null: flase |
-| item                   | references | null: false, foreign_key: true |
-
-
-### Association
-
-- belongs_to :item
-
-## deal テーブル
+## manage テーブル
 
 | user                   | references | null: false, foreign_key: true |
 | item                   | references | null: false, foreign_key: true |
@@ -64,3 +49,20 @@
 
 - belongs_to :user
 - belongs_to :item
+- has_one :purchase
+
+## purchases テーブル
+
+| Column                 | Type       | Options     |
+| ---------------------- | -----------| ----------- |
+| postal_code            | String     | null: flase |
+| address_city           | String     | null: flase |
+| block_number           | String     | null: flase |
+| building_number        | String     |             |
+| phone_number           | String     | null: flase |
+| manage                 | references | null: false, foreign_key: true |
+
+
+### Association
+
+- belongs_to :manage
