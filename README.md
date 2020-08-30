@@ -17,6 +17,7 @@
 ### Association
 
 - has_many :items
+- has_many :deal
 
 
 ## items テーブル
@@ -37,14 +38,13 @@
 ### Association
 
 - has_one :purchase
+- has_one :deal
 - belongs_to :user
 
 ## purchases テーブル
 
 | Column                 | Type       | Options     |
 | ---------------------- | -----------| ----------- |
-| image                  | string     | null: false |
-| name                   | string     | null: false |
 | address_city           | String     | null: flase |
 | block_number           | String     | null: flase |
 | phone_number           | String     | null: flase |
@@ -53,4 +53,14 @@
 
 ### Association
 
+- belongs_to :item
+
+## deal テーブル
+
+| user                   | references | null: false, foreign_key: true |
+| item                   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
 - belongs_to :item
