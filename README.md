@@ -7,7 +7,7 @@
 | name                      | string | null: false |
 | email                     | string | null: false |
 | password                  | string | null: false |
-| confirmation password     | string | null: false |
+| confirmation_password     | string | null: false |
 | last_name                 | string | null: false |
 | first_name                | string | null: false |
 | last_name_kana            | string | null: false |
@@ -40,7 +40,7 @@
 - has_one : manage
 - belongs_to :user
 
-## manage テーブル
+## manages テーブル
 
 | user                   | references | null: false, foreign_key: true |
 | item                   | references | null: false, foreign_key: true |
@@ -56,6 +56,7 @@
 | Column                 | Type       | Options     |
 | ---------------------- | -----------| ----------- |
 | postal_code            | String     | null: flase |
+| prefecture             | String     | null: flase |
 | address_city           | String     | null: flase |
 | block_number           | String     | null: flase |
 | building_number        | String     |             |
