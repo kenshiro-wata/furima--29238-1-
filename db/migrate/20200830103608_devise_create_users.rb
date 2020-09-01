@@ -10,8 +10,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :confirmation_password, null: false, default: ""
       t.string :last_name, null: false, default: ""
       t.string :first_name, null: false, default: ""
-      t.string :last_name_kane, null: false, default: ""
-      t.string :first_name_kane, null: false, default: ""
+      t.string :last_name_kana, null: false, default: ""
+      t.string :first_name_kana, null: false, default: ""
       t.date   :birth, null: false
 
       ## Recoverable
