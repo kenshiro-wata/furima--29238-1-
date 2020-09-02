@@ -101,4 +101,10 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+  margin-right: 3vw;
+}
+
+.sign-out{
+  text-decoration: none;
+  color: #333333;
 }
