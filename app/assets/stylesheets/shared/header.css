@@ -100,11 +100,13 @@
 
 .sign-up {
   text-decoration: none;
+  line-height: 32px;
   color: #333333;
   margin-right: 3vw;
 }
 
 .sign-out{
   text-decoration: none;
+  line-height: 32px;
   color: #333333;
 }
