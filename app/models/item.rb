@@ -6,8 +6,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :charge
   belongs_to_active_hash :day
 
-
   belongs_to :user
+  has_one_attached :image
 
   validates :address_id, numericality: { other_than: 0 }
   validates :status_id, numericality: { other_than: 0 }
