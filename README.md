@@ -27,11 +27,11 @@
 | image               | string     | null: false |
 | name                | string     | null: false |
 | description         | text       | null: false |
-| category            | integer    | null: false |
-| status              | integer    | null: false |
-| shipping_charges    | integer    | null: false |
-| ship_from_address   | integer    | null: false |
-| date_takes          | integer    | null: false |
+| category_id            | integer    | null: false |
+| status_id              | integer    | null: false |
+| shipping_charges_id    | integer    | null: false |
+| address_id   | integer    | null: false |
+| date_takes_id          | integer    | null: false |
 | price               | integer    | null: false |
 | user                | references | null: false, foreign_key: true |
 
