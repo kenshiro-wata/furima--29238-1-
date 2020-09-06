@@ -12,6 +12,6 @@ class Item < ApplicationRecord
   validates :address_id, numericality: { other_than: 0 }
   validates :status_id, numericality: { other_than: 0 }
   validates :category_id, numericality: { other_than: 0 }
-  validates :charge_id, numericality: { other_than: 0 }
+  validates :shipping_charges_id, numericality: { other_than: 0 }
   validates :date_takes_id, numericality: { other_than: 0 }
 end
