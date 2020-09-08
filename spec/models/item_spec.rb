@@ -73,10 +73,47 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include('Price is not included in the list')
     end
 
-    it 'prieceは¥300~¥9,999,999の間で入力しないと登録できないこと' do
+    it 'prieceは¥300以下で入力すると登録できないこと' do
       @item.price = '50'
       @item.valid?
       expect(@item.errors.full_messages).to include('Price is not included in the list')
     end
+
+    it 'priceは¥10000000以上で入力すると登録できないこと' do
+      @item.price = '10000000'
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Price is not included in the list')
+    end
+
+    it 'category_idが0だと登録できないこと' do
+      @item.category_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Category must be other than 0")
+    end
+
+    it 'status_idが0だと登録できないこと' do
+      @item.status_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Status must be other than 0")
+    end
+
+    it 'shipping_charges_idが0だと登録できないこと' do
+      @item.shipping_charges_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Shipping charges must be other than 0")
+    end
+
+    it 'address_idが0だと登録できないこと' do
+      @item.address_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Address must be other than 0")
+    end
+
+    it 'date_takes_idが0だと登録できないこと' do
+      @item.date_takes_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Date takes must be other than 0")
+    end
+
   end
 end
