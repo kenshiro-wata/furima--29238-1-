@@ -3,8 +3,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :address
   belongs_to_active_hash :status
   belongs_to_active_hash :category
-  belongs_to_active_hash :charge
-  belongs_to_active_hash :day
+  belongs_to_active_hash :shipping_charges
+  belongs_to_active_hash :date_takes
 
   belongs_to :user
   has_one_attached :image
