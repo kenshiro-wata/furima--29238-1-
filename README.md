@@ -51,7 +51,7 @@
 - belongs_to :item
 - has_one :purchase
 
-## purchases テーブル
+## orders テーブル
 
 | Column                 | Type       | Options     |
 | ---------------------- | -----------| ----------- |
