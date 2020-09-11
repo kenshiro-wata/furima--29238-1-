@@ -1,11 +1,16 @@
 class OrdersController < ApplicationController
+  #before_action :move_to_index
 
   def index
-    #@item = Item.find(params[:id])
+    #@item = Item.find(params[:id]) 
+  end
+
+  def new
+    @order = ManageOrder.new
   end
   
   def create
-    @order = Order.new(price: order_params[:price])
+    @order = Order.new(order_params)
     if @order.valid?
       pay_item
       @order.save
@@ -18,7 +23,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:price, :token)
+    params.require(:manage).permit(:user_id, :item_id, :postal_code, :prefecture, :address_city, :block_number, :building_number, :phone_number, :manage, :token)
   end
 
   def pay_item
@@ -29,5 +34,9 @@ class OrdersController < ApplicationController
       currency:'jpy'                 # 通貨の種類(日本円)
     )
   end
+
+  #def move_to_index
+    #redirect_to controller: 'items', action: 'index' unless user_signed_in? 
+  #end
 
 end
