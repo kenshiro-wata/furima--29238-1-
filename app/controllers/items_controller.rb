@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
   def show 
     @user = @item.user
   end
+  
   def destroy
     if @item.destroy
      redirect_to root_path
