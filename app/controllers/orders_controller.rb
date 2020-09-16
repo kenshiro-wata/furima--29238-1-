@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  #before_action :move_to_index
+  before_action :move_to_index
 
   def new
     @order = ManageOrder.new
@@ -33,8 +33,9 @@ class OrdersController < ApplicationController
     )
   end
 
-  #def move_to_index
-    #redirect_to controller: 'items', action: 'index' unless user_signed_in? 
-  #end
+  def move_to_index
+    @item = Item.find(params[:item_id])
+    redirect_to controller: 'items', action: 'index' if @item.manage || @item.user_id == current_user.id
+  end
 
 end
