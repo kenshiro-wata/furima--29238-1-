@@ -4,15 +4,14 @@ class ManageOrder
   #attr_accessor :name, :email, :password, :password_confirmation, :last_name, :first_name, :last_name_kana, :first_name_kana, :birth, :image, :name, :description, :category_id, :status_id, :shipping_charges_id, :address_id, :date_takes_id, :price, :postal_code, :prefecture, :address_city, :block_number, :building_number, :phone_number, :manage
   attr_accessor :user_id, :item_id, :manage_order, :postal_code, :prefecture, :address_city, :block_number, :building_number, :phone_number, :token
   
-  validates :token, presence: true
-  # with_options presence: true do
-  #   validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
-  #   validates :prefecture 
-  #   validates :address_city
-  #   validates :block_number
-  #   validates :phone_number, length: { maximum: 11}
-  #   validates :token
-  # end
+  with_options presence: true do
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
+    validates :prefecture, numericality: { other_than: 0 }
+    validates :address_city
+    validates :block_number
+    validates :phone_number, length: { maximum: 11}
+    validates :token
+  end
 
   def save
     # manage の情報を保存し、「manage」という変数に入れている

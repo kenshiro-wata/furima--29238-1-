@@ -7,14 +7,14 @@ class OrdersController < ApplicationController
   end
   
   def create
+    @item = Item.find(params[:item_id])
     @order = ManageOrder.new(order_params)
     if @order.valid?
       pay_item
       @order.save
       return redirect_to root_path
-    else
-      render :new
     end
+    render :new
   end
 
   private
