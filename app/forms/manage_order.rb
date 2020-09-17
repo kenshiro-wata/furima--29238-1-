@@ -1,6 +1,5 @@
 class ManageOrder
   include ActiveModel::Model
-  # attr_accessor :name, :email, :password, :password_confirmation, :last_name, :first_name, :last_name_kana, :first_name_kana, :birth, :image, :name, :description, :category_id, :status_id, :shipping_charges_id, :address_id, :date_takes_id, :price, :postal_code, :prefecture, :address_city, :block_number, :building_number, :phone_number, :manage
   attr_accessor :user_id, :item_id, :manage_order, :postal_code, :prefecture, :address_city, :block_number, :building_number, :phone_number, :token
 
   with_options presence: true do
