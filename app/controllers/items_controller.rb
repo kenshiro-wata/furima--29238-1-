@@ -27,13 +27,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show 
+  def show
     @user = @item.user
   end
-  
+
   def destroy
     if @item.destroy
-     redirect_to root_path
+      redirect_to root_path
     else
       render :edit
     end

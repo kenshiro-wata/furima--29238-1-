@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     @order = ManageOrder.new
     @item = Item.find(params[:item_id])
   end
-  
+
   def create
     @item = Item.find(params[:item_id])
     @order = ManageOrder.new(order_params)
@@ -25,11 +25,11 @@ class OrdersController < ApplicationController
 
   def pay_item
     @item = Item.find(params[:item_id])
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,  # 商品の値段
-      card: order_params[:token],    # カードトークン
-      currency:'jpy'                 # 通貨の種類(日本円)
+      card: order_params[:token], # カードトークン
+      currency: 'jpy'                 # 通貨の種類(日本円)
     )
   end
 
@@ -37,5 +37,4 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     redirect_to controller: 'items', action: 'index' if @item.manage || @item.user_id == current_user.id
   end
-
 end

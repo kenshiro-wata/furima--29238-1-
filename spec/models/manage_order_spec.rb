@@ -44,21 +44,19 @@ RSpec.describe ManageOrder, type: :model do
     it '郵便番号にはハイフンがないと登録できないこと' do
       @manage_order.postal_code = '1111111'
       @manage_order.valid?
-      expect(@manage_order.errors.full_messages).to include("Postal code is invalid")
+      expect(@manage_order.errors.full_messages).to include('Postal code is invalid')
     end
 
     it '電話番号は１１桁以内でないと登録できないこと' do
       @manage_order.phone_number = '080123412345'
       @manage_order.valid?
-      expect(@manage_order.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      expect(@manage_order.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
     end
 
     it '都道府県番号は０だと登録できないこと' do
       @manage_order.prefecture = 0
       @manage_order.valid?
-      expect(@manage_order.errors.full_messages).to include("Prefecture must be other than 0")
+      expect(@manage_order.errors.full_messages).to include('Prefecture must be other than 0')
     end
-
   end
 end
-
