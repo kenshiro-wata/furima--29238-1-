@@ -17,7 +17,7 @@ class ManageOrder
     # manage の情報を保存し、「manage」という変数に入れている
     manage = Manage.create(user_id: user_id, item_id: item_id)
     # 商品購入（住所）の情報を保存
-    Order.create!(postal_code: postal_code, prefecture: prefecture, address_city: address_city, block_number: block_number, building_number: building_number, phone_number: phone_number, manage_id: manage.id)
+    Order.create(postal_code: postal_code, prefecture: prefecture, address_city: address_city, block_number: block_number, building_number: building_number, phone_number: phone_number, manage_id: manage.id)
   end
 
 end
